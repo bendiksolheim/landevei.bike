@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "parcel index.html"
+    "watch": "parcel index.html",
+    "build": "parcel build index.html -d docs --public-url ./"
   },
   "keywords": [],
   "author": "",
