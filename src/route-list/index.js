@@ -15,8 +15,10 @@ const Route = ({ link, name }, setRoute) => (
 
 const Routes = ({ routes, setRoute }) => (
   <div className="routes">
-    <h1 className="routes__title">Routes</h1>
-    <ul>{routes.map(route => Route(route, setRoute))}</ul>
+    <h1 className="routes__title">Ruter</h1>
+    <ul className="routes__list">
+      {routes.map(route => Route(route, setRoute))}
+    </ul>
   </div>
 );
 
