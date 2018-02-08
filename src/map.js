@@ -52,8 +52,7 @@ class Map extends React.Component {
     }
 
     if (this.props.route !== nextProps.route) {
-      console.log('Route changed');
-      this.setRoute(route);
+      this.setRoute(nextProps.route);
     }
   }
 
