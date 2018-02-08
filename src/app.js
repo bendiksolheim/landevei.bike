@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = {
       map: {
         center: [10.393149, 63.429834],
-        style: 'mapbox://styles/bendiksolheim/cjd526ulr414d2ssc72yp9fku',
+        style: 'mapbox://styles/mapbox/dark-v9',
         zoom: 13
       },
       routes: [],
