@@ -30,7 +30,9 @@ class App extends React.Component {
         <Map config={this.state.map} route={this.state.route} />;
         <Routes
           routes={this.state.routes}
-          setRoute={route => this.setState({ route: route })}
+          getRoute={link =>
+            getRoute(link).then(route => this.setState({ route: route }))
+          }
         />
       </React.Fragment>
     );
