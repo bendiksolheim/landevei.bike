@@ -2,10 +2,10 @@ import React from 'react';
 import './index.css';
 import { getRoute } from '../repository';
 
-const Route = ({ link, name }, getRoute) => (
-  <li key={name}>
-    <button className="routes__route-button" onClick={() => getRoute(link)}>
-      {name}
+const Route = (route, getRoute) => (
+  <li key={route.name}>
+    <button className="routes__route-button" onClick={() => getRoute(route)}>
+      {route.name}
     </button>
   </li>
 );

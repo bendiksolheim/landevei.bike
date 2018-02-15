@@ -24,15 +24,17 @@ class App extends React.Component {
     });
   }
 
+  getRoute(route) {
+    getRoute(route.link).then(route => this.setState({ route: route }));
+  }
+
   render() {
     return (
       <React.Fragment>
         <Map config={this.state.map} route={this.state.route} />;
         <Routes
           routes={this.state.routes}
-          getRoute={link =>
-            getRoute(link).then(route => this.setState({ route: route }))
-          }
+          getRoute={this.getRoute.bind(this)}
         />
       </React.Fragment>
     );
