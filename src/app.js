@@ -27,7 +27,6 @@ class App extends React.Component {
   getRoute(route) {
     const savedRoute = this.state.routes.find(r => r.name === route.name);
     if (savedRoute.data) {
-      console.log(`Route ${route.name} already downloaded`);
       this.setState({ route: savedRoute });
     } else {
       getRoute(route.link).then(response => {
