@@ -19,5 +19,6 @@
 
 .routes__route-button {
     border: 0;
+    outline: 0;
     padding: 0;
 }
