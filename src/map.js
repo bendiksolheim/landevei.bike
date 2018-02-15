@@ -37,6 +37,9 @@ class Map extends React.Component {
     });
 
     this.map.on('load', () => {
+      this.map.addControl(
+        new mapboxgl.NavigationControl({ position: 'top-right' })
+      );
       this._loaded = true;
       this.map.addSource(routeSourceId, emptySource);
       this.map.addLayer(routeLayer);
