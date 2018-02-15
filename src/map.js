@@ -57,7 +57,7 @@ class Map extends React.Component {
   }
 
   setRoute(route) {
-    this.map.getSource(routeSourceId).setData(route);
+    this.map.getSource(routeSourceId).setData(route.data);
   }
 
   componentWillUnmount() {

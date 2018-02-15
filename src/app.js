@@ -25,7 +25,21 @@ class App extends React.Component {
   }
 
   getRoute(route) {
-    getRoute(route.link).then(route => this.setState({ route: route }));
+    const savedRoute = this.state.routes.find(r => r.name === route.name);
+    if (savedRoute.data) {
+      console.log(`Route ${route.name} already downloaded`);
+      this.setState({ route: savedRoute });
+    } else {
+      getRoute(route.link).then(response => {
+        const routes = this.state.routes.map(r => {
+          if (r.name === route.name) {
+            r.data = response;
+          }
+          return r;
+        });
+        this.setState({ route: { ...route, data: response } });
+      });
+    }
   }
 
   render() {
