@@ -2,6 +2,7 @@ import React from 'react';
 import { Map } from './map';
 import { Routes } from './route-list';
 import { getRoutes, getRoute } from './repository';
+import { RouteInfo } from './route-info';
 
 class App extends React.Component {
   constructor() {
@@ -49,6 +50,7 @@ class App extends React.Component {
           routes={this.state.routes}
           getRoute={this.getRoute.bind(this)}
         />
+        <RouteInfo route={this.state.route} />
       </React.Fragment>
     );
   }

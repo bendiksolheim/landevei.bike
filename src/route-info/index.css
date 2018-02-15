@@ -1,0 +1,9 @@
+.route-info {
+    background: white;
+    bottom: 0;
+    margin-left: -100px;
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+    width: 200px;
+}
