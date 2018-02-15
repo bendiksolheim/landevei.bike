@@ -15,7 +15,10 @@ class App extends React.Component {
         zoom: 13
       },
       routes: [],
-      route: null
+      route: null,
+      filter: {
+        distance: { min: 0, max: 100000 }
+      }
     };
   }
 
@@ -23,6 +26,13 @@ class App extends React.Component {
     getRoutes().then(response => {
       this.setState({ routes: response.routes });
     });
+  }
+
+  onDistanceChange(minMax) {
+    const filter = { ...this.state.filter };
+    filter.distance.min = minMax[0];
+    filter.distance.max = minMax[1];
+    this.setState({ filter });
   }
 
   getRoute(route) {
@@ -47,8 +57,10 @@ class App extends React.Component {
       <React.Fragment>
         <Map config={this.state.map} route={this.state.route} />;
         <Routes
+          filter={this.state.filter}
           routes={this.state.routes}
           getRoute={this.getRoute.bind(this)}
+          onDistanceChange={this.onDistanceChange.bind(this)}
         />
         <RouteInfo route={this.state.route} />
       </React.Fragment>
