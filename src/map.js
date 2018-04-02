@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import { h } from 'hyperapp';
 import mapboxgl from 'mapbox-gl';
 
 const routeLayerId = 'route_layer';
@@ -26,54 +27,87 @@ const routeLayer = {
 mapboxgl.accessToken =
   'pk.eyJ1IjoiYmVuZGlrc29saGVpbSIsImEiOiJjamQzbHl6YXowdnZjMnFvcXJoMXNwcjRqIn0.Azuz2KugpSMCBwKSe0yc9Q';
 
-class Map extends React.Component {
-  componentDidMount() {
-    const config = this.props.config;
-    this.map = new mapboxgl.Map({
-      center: config.center,
-      container: this.container,
-      style: config.style,
-      zoom: config.zoom
-    });
+// class Map extends React.Component {
+//   componentDidMount() {
+//     const config = this.props.config;
+//     this.map = new mapboxgl.Map({
+//       center: config.center,
+//       container: this.container,
+//       style: config.style,
+//       zoom: config.zoom
+//     });
 
-    this.map.on('load', () => {
-      this.map.addControl(
-        new mapboxgl.NavigationControl({ position: 'top-right' })
-      );
-      this._loaded = true;
-      this.map.addSource(routeSourceId, emptySource);
-      this.map.addLayer(routeLayer);
-      if (this.props.route) {
-        this.setRoute(this.props.route);
-      }
-    });
-  }
+//     this.map.on('load', () => {
+//       this.map.addControl(
+//         new mapboxgl.NavigationControl({ position: 'top-right' })
+//       );
+//       this._loaded = true;
+//       this.map.addSource(routeSourceId, emptySource);
+//       this.map.addLayer(routeLayer);
+//       if (this.props.route) {
+//         this.setRoute(this.props.route);
+//       }
+//     });
+//   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!this._loaded) {
-      return;
-    }
+//   componentWillReceiveProps(nextProps) {
+//     if (!this._loaded) {
+//       return;
+//     }
 
-    if (this.props.route !== nextProps.route) {
-      this.setRoute(nextProps.route);
-    }
-  }
+//     if (this.props.route !== nextProps.route) {
+//       this.setRoute(nextProps.route);
+//     }
+//   }
 
-  setRoute(route) {
-    this.map.getSource(routeSourceId).setData(route.data);
-  }
+//   setRoute(route) {
+//     this.map.getSource(routeSourceId).setData(route.data);
+//   }
 
-  componentWillUnmount() {
-    this.map.remove();
-  }
+//   componentWillUnmount() {
+//     this.map.remove();
+//   }
 
-  render() {
-    const style = {
-      height: '100%',
-      width: '100%'
-    };
-    return <div style={style} ref={el => (this.container = el)} />;
-  }
+//   render() {
+//     const style = {
+//       height: '100%',
+//       width: '100%'
+//     };
+//     return <div style={style} ref={el => (this.container = el)} />;
+//   }
+// }
+
+function setRoute(map, route) {
+  route.getSource(routeSourceId).setData(route.data);
 }
+
+function createMap(el, config) {
+  const map = new mapboxgl.Map({
+    center: config.center,
+    container: el,
+    style: config.style,
+    zoom: config.zoom
+  });
+
+  map.on('load', () => {
+    map.addControl(new mapboxgl.NavigationControl({ position: 'top-right' }));
+
+    map.addSource(routeSourceId, emptySource);
+    map.addLayer(routeLayer);
+
+    // if (this.props.route) {
+    //   setRoute(this.props.route);
+    // }
+  });
+}
+
+const style = {
+  height: '100%',
+  width: '100%'
+};
+
+const Map = ({ config, route }) => (
+  <div style={style} oncreate={el => createMap(el, config)} />
+);
 
 export { Map };

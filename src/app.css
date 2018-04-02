@@ -1,11 +1,51 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html {
+    box-sizing: border-box;
     font-size: 16px;
     height: 100%;
     width: 100%;
 }
 
 body {
+    font-family: 'Open Sans', sans-serif;
     height: 100%;
     margin: 0;
     width: 100%;
+}
+
+.app {
+}
+
+.app__header {
+    align-items: center;
+    background: #000;
+    color: white;
+    display: flex;
+    height: 70px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.app__logo {
+    height: 50px;
+}
+
+.app__title {
+    font-weight: 400;
+    margin: 0 0 0 10px;
+}
+
+.app__content {
+    position: relative;
+}
+
+.mapbox-gl {
+    z-index: 1;
+}
+
+.mapboxgl-map {
+    max-height: calc(100% - 70px);
 }

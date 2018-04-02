@@ -12,15 +12,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "hyperapp-redux-devtools": "^1.1.6",
     "parcel-bundler": "^1.5.1"
   },
   "dependencies": {
-    "mapbox-gl": "^0.44.0",
-    "rc-slider": "^8.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "hyperapp": "^1.2.5",
+    "hyperapp-slider": "github:bendiksolheim/hyperapp-slider",
+    "mapbox-gl": "^0.44.0"
   }
 }
