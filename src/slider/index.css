@@ -23,7 +23,7 @@
     background: var(--slider-background);
 }
 
-.slider__foreground {
+.slider__fill {
     background: var(--slider-foreground);
     height: var(--slider-height);
     position: absolute;

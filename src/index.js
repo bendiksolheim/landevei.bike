@@ -14,8 +14,8 @@ const state = {
   length: null,
   routes: [],
   route: null,
-  speed: Slider.state({ min: 0, max: 50, value: 25 }),
-  time: Slider.state({ min: 0, max: 900, value: 120 })
+  speed: Slider.state({ min: 0, max: 50, value: 20, step: 1 }),
+  time: Slider.state({ min: 0, max: 900, value: 120, step: 15 })
 };
 
 const actions = {

@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "parcel index.html",
-    "build": "parcel build index.html -d docs --public-url ./"
+    "build": "parcel build index.html -d docs --public-url ./",
+    "start": "npm run watch"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +22,7 @@
   },
   "dependencies": {
     "hyperapp": "^1.2.5",
-    "hyperapp-slider": "github:bendiksolheim/hyperapp-slider",
+    "hyperapp-slider": "0.0.1",
     "mapbox-gl": "^0.44.0"
   }
 }
