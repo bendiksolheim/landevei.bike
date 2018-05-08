@@ -22,6 +22,9 @@ const actions = {
   setRoutes: routes => state => ({ routes: routes }),
   getRoutes: () => (state, actions) =>
     getRoutes().then(res => actions.setRoutes(res.routes)),
+  setRoute: route => state => ({ route }),
+  getRoute: route => (state, actions) =>
+    getRoute(route.link).then(res => actions.setRoute(res)),
   lengthSlider: Slider.actions
 };
 

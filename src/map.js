@@ -26,12 +26,14 @@ const routeLayer = {
 mapboxgl.accessToken =
   'pk.eyJ1IjoiYmVuZGlrc29saGVpbSIsImEiOiJjamQzbHl6YXowdnZjMnFvcXJoMXNwcjRqIn0.Azuz2KugpSMCBwKSe0yc9Q';
 
+let map = null;
+
 function setRoute(map, route) {
-  route.getSource(routeSourceId).setData(route.data);
+  map.getSource(routeSourceId).setData(route);
 }
 
 function createMap(el, config) {
-  const map = new mapboxgl.Map({
+  map = new mapboxgl.Map({
     center: config.center,
     container: el,
     style: config.style,
@@ -52,7 +54,15 @@ const style = {
 };
 
 const Map = ({ config, route }) => (
-  <div style={style} oncreate={el => createMap(el, config)} />
+  <div
+    style={style}
+    oncreate={el => createMap(el, config)}
+    onupdate={(el, oldAttrs) => {
+      if (route != oldAttrs.route) {
+        setRoute(map, route);
+      }
+    }}
+  />
 );
 
 export { Map };

@@ -24,7 +24,11 @@ const entry = (state, actions) => (
         )}
       </div>
       <div class="app__map">
-        <Routes routes={state.routes} />
+        <Routes
+          routes={state.routes}
+          activeRoute={state.route}
+          getRoute={actions.getRoute}
+        />
         <Map config={state.map} route={state.route} />
         <RouteInfo route={state.route} />
       </div>
