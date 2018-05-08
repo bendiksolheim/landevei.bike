@@ -11,20 +11,18 @@ const state = {
     zoom: 13
   },
   filter: true,
-  length: null,
   routes: [],
   route: null,
-  speed: Slider.state({ min: 0, max: 50, value: 20, step: 1 }),
-  time: Slider.state({ min: 0, max: 900, value: 120, step: 15 })
+  lengthSlider: Slider.state({ min: 0, max: 200, value: 20, step: 2.5 }),
+  length: 0
 };
 
 const actions = {
-  search: state => ({ length: state.filter.speed * state.filter.time }),
+  search: length => state => ({ length: length, filter: false }),
   setRoutes: routes => state => ({ routes: routes }),
   getRoutes: () => (state, actions) =>
     getRoutes().then(res => actions.setRoutes(res.routes)),
-  speed: Slider.actions,
-  time: Slider.actions
+  lengthSlider: Slider.actions
 };
 
 function init() {
