@@ -29,7 +29,13 @@ mapboxgl.accessToken =
 let map = null;
 
 function setRoute(map, route) {
-  map.getSource(routeSourceId).setData(route);
+  const dataLayer = map.getSource(routeSourceId);
+  dataLayer.setData(route);
+  const coordinates = route.features[0].geometry.coordinates;
+  const bounds = coordinates.reduce((bounds, coord) => {
+    return bounds.extend(coord);
+  }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
+  map.fitBounds(bounds, { padding: 30 });
 }
 
 function createMap(el, config) {
