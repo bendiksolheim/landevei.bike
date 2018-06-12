@@ -53,13 +53,13 @@ const style = {
   width: '100%'
 };
 
-const Map = ({ config, route }) => (
+const Map = ({ config, data }) => (
   <div
     style={style}
     oncreate={el => createMap(el, config)}
     onupdate={(el, oldAttrs) => {
-      if (route != oldAttrs.route) {
-        setRoute(map, route);
+      if (data != oldAttrs.data) {
+        setRoute(map, data);
       }
     }}
   />

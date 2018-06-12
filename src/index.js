@@ -1,6 +1,6 @@
 import { h, app } from 'hyperapp';
 import { entry } from './app';
-import { getRoutes, getRoute } from './repository';
+import api from './repository';
 import { Slider } from 'hyperapp-slider';
 import './app.css';
 
@@ -13,18 +13,25 @@ const state = {
   filter: true,
   routes: [],
   route: null,
+  data: null,
   lengthSlider: Slider.state({ min: 0, max: 200, value: 20, step: 2.5 }),
   length: 0
 };
 
+const search = length => state => ({ length, filter: false });
+const setRoutes = routes => state => ({ routes });
+const getRoutes = () => (state, actions) =>
+  api.getRoutes().then(res => actions.setRoutes(res.routes));
+const setRoute = ({ route, data }) => state => ({ route, data });
+const getRoute = route => (state, actions) =>
+  api.getRoute(route.link).then(data => actions.setRoute({ route, data }));
+
 const actions = {
-  search: length => state => ({ length: length, filter: false }),
-  setRoutes: routes => state => ({ routes: routes }),
-  getRoutes: () => (state, actions) =>
-    getRoutes().then(res => actions.setRoutes(res.routes)),
-  setRoute: route => state => ({ route }),
-  getRoute: route => (state, actions) =>
-    getRoute(route.link).then(res => actions.setRoute(res)),
+  search,
+  setRoutes,
+  getRoutes,
+  setRoute,
+  getRoute,
   lengthSlider: Slider.actions
 };
 

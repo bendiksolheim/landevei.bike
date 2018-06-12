@@ -23,4 +23,4 @@ function getRoute(route) {
     .then(response => response.json());
 }
 
-export { getRoutes, getRoute };
+export default { getRoutes, getRoute };

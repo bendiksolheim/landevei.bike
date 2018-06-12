@@ -1,9 +1,42 @@
 .route {
+    align-items: center;
     background: white;
+    border: 0;
+    cursor: pointer;
+    display: flex;
     margin: 10px;
+    outline: 0;
     padding: 20px;
+    width: 300px;
 }
 
 .route--selected {
     font-weight: 700;
+}
+
+.route__length-indicator {
+    --h: 120;
+    background: hsl(var(--h), 100%, 50%);
+    height: 20px;
+    opacity: 0;
+    width: 20px;
+}
+
+.route__length-indicator--visible {
+    opacity: 1;
+}
+
+.route__info {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.route__name {
+    font-size: 1.2rem;
+}
+
+.route__length {
+    font-size: 0.9rem;
 }

@@ -26,10 +26,11 @@ const entry = (state, actions) => (
       <div class="app__map">
         <Routes
           routes={state.routes}
-          activeRoute={state.route}
+          route={state.route}
           getRoute={actions.getRoute}
+          length={state.length}
         />
-        <Map config={state.map} route={state.route} />
+        <Map config={state.map} data={state.data} />
         <RouteInfo route={state.route} />
       </div>
     </div>
