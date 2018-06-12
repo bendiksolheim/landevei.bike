@@ -1,6 +1,4 @@
 .filter {
-    --module-padding: 50px;
-
     align-items: center;
     background: rgba(0, 0, 0, .75);
     display: flex;
@@ -31,7 +29,7 @@
 }
 
 .filter__module {
-    margin: var(--module-padding);
+    margin: 50px;
 }
 
 .module {
