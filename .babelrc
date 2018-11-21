@@ -1,5 +1,9 @@
 {
-  "presets": ["env"],
+  "presets": [[ "env", {
+    "targets": {
+      "browsers": "defaults, not ie <999, not Android < 999"
+    }
+  } ]],
   "plugins": [
     ["transform-react-jsx", { "pragma": "h" }],
     ["transform-object-rest-spread"],

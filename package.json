@@ -13,17 +13,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-plugin-module-resolver": "^3.1.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "hyperapp-redux-devtools": "^1.1.6",
-    "parcel-bundler": "^1.5.1"
+    "parcel-bundler": "^1.10.3"
   },
   "dependencies": {
     "classnames": "^2.2.5",
     "hyperapp": "^1.2.9",
     "hyperapp-slider": "0.0.1",
-    "mapbox-gl": "^0.44.0"
+    "mapbox-gl": "^0.51.0"
   }
 }
