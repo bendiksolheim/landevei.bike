@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "hyperapp": "^1.2.5",
+    "hyperapp": "^1.2.9",
     "hyperapp-slider": "0.0.1",
     "mapbox-gl": "^0.44.0"
   }
