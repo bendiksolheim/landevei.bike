@@ -5,7 +5,7 @@ import './index.css';
 const green = 120;
 const red = 0;
 
-const mToMiles = m => (m / 10000).toFixed(2);
+const mToKm = m => (m / 1000).toFixed(2);
 
 const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 
@@ -32,7 +32,7 @@ const Route = ({ route, onclick, length, selected }) => (
     />
     <div class="route__info">
       <div class="route__name">{route.name}</div>
-      <div class="route__length">{mToMiles(route.meta.distance)} mil</div>
+      <div class="route__length">{mToKm(route.meta.distance)} km</div>
     </div>
   </button>
 );
