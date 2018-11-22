@@ -7,6 +7,7 @@
     margin: 10px 0;
     outline: 0;
     padding: 20px;
+    position: relative;
     width: 100%;
 }
 
@@ -17,8 +18,10 @@
 .route__length-indicator {
     --h: 120;
     background: hsl(var(--h), 100%, 50%);
-    height: 20px;
-    width: 20px;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 7px;
 }
 
 .route__info {
