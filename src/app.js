@@ -8,31 +8,29 @@ import logo from './assets/logo.svg';
 
 const entry = (state, actions) => (
   <div class="app">
-    <div class="app__header">
-      <img src={logo} class="app__logo" />
-      <h1 class="app__title">landevei.bike</h1>
-    </div>
-    <div class="app__content">
-      <div class="app__filter">
-        {state.filter && (
-          <Filter
-            state={state}
-            actions={actions}
-            filter={state.filter}
-            search={actions.search}
-          />
-        )}
+    <div class="app__filter">
+      <div class="app__header">
+        <img src={logo} class="app__logo" />
+        <h1 class="app__title">landevei.bike</h1>
       </div>
-      <div class="app__map">
-        <Routes
-          routes={state.routes}
-          route={state.route}
-          getRoute={actions.getRoute}
-          length={state.length}
+      {state.filter && (
+        <Filter
+          state={state}
+          actions={actions}
+          filter={state.filter}
+          search={actions.search}
         />
-        <Map config={state.map} data={state.data} />
-        <RouteInfo route={state.route} />
-      </div>
+      )}
+      <Routes
+        routes={state.routes}
+        route={state.route}
+        getRoute={actions.getRoute}
+        length={state.length}
+      />
+    </div>
+    <div class="app__map">
+      <Map config={state.map} data={state.data} />
+      <RouteInfo route={state.route} />
     </div>
   </div>
 );

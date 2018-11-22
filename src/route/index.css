@@ -1,13 +1,14 @@
 .route {
     align-items: center;
     background: white;
+    background: #8D8D95;
     border: 0;
     cursor: pointer;
     display: flex;
-    margin: 10px;
+    margin: 10px 0;
     outline: 0;
     padding: 20px;
-    width: 300px;
+    width: 100%;
 }
 
 .route--selected {
@@ -34,9 +35,14 @@
 }
 
 .route__name {
-    font-size: 1.2rem;
+    text-align: left;
+    font-size: 1rem;
 }
 
-.route__length {
-    font-size: 0.9rem;
+.route__distance {
+    font-size: 0.8rem;
+}
+
+.route__elevation {
+    font-size: 0.8rem;
 }

@@ -18,7 +18,7 @@ const routeLayer = {
     'line-cap': 'round'
   },
   paint: {
-    'line-color': '#7BB9E4',
+    'line-color': '#FE7035',
     'line-width': 4
   }
 };

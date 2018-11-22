@@ -17,16 +17,27 @@ body {
 }
 
 .app {
+    display: flex;
+}
+
+.app__filter {
+    background: #3C3C41;
+    height: 100%;
+    padding: 20px;
+    width: 350px;
+}
+
+.app__map {
+    height: 100%;
+    width: calc(100% - 300px);
 }
 
 .app__header {
     align-items: center;
-    background: #000;
     color: white;
     display: flex;
     height: 70px;
     padding: 0 20px;
-    width: 100%;
 }
 
 .app__logo {
@@ -47,5 +58,4 @@ body {
 }
 
 .mapboxgl-map {
-    max-height: calc(100% - 70px);
 }
