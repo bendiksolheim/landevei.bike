@@ -7,7 +7,7 @@ import './app.css';
 const state = {
   map: {
     center: [10.393149, 63.429834],
-    style: 'mapbox://styles/mapbox/light-v9',
+    style: 'mapbox://styles/bendiksolheim/cjosbdeu13l7k2roz0sm2c4bf',
     zoom: 13
   },
   filter: true,
