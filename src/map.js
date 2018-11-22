@@ -36,7 +36,7 @@ function setRoute(map, route) {
   const bounds = coordinates.reduce((bounds, coord) => {
     return bounds.extend(coord);
   }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
-  map.fitBounds(bounds, { padding: 30 });
+  map.fitBounds(bounds, { padding: 50 });
 }
 
 function createMap(el, config) {
