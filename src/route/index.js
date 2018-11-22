@@ -12,7 +12,7 @@ const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 const lengthIndicator = (routeLength, length) =>
   green - clamp(Math.abs(length - routeLength) / length, 0, 1) * green;
 
-const Route = ({ route, onclick, length, selected }) => (
+const Route = ({ route, onclick, length, selected, elevation }) => (
   <button
     class={classNames('route', { 'route--selected': selected })}
     onclick={() => onclick(route)}
@@ -33,6 +33,7 @@ const Route = ({ route, onclick, length, selected }) => (
     <div class="route__info">
       <div class="route__name">{route.name}</div>
       <div class="route__length">{mToKm(route.meta.distance)} km</div>
+      <div class="route__elevation">{route.meta.elevation} høydemeter</div>
     </div>
   </button>
 );
