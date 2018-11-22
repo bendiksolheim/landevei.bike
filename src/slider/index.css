@@ -11,9 +11,9 @@
 }
 
 .slider {
-    --slider-background: rgb(189, 189, 189);
-    --slider-foreground: rgba(0, 0, 0, 1);
-    --slider-height: 3px;
+    --slider-background: rgb(50, 50, 50);
+    --slider-foreground: rgba(220, 220, 220, 1);
+    --slider-height: 2px;
     --slider-handle-size: 40px; 
     position: relative;
 }
