@@ -18,10 +18,13 @@ const state = {
   length: 0
 };
 
+const sortRoutes = routes =>
+  routes.sort((r1, r2) => r1.meta.distance - r2.meta.distance);
+
 const search = length => state => ({ length, filter: false });
 const setRoutes = routes => state => ({ routes });
 const getRoutes = () => (state, actions) =>
-  api.getRoutes().then(res => actions.setRoutes(res.routes));
+  api.getRoutes().then(res => actions.setRoutes(sortRoutes(res.routes)));
 const setRoute = ({ route, data }) => state => ({ route, data });
 const getRoute = route => (state, actions) =>
   api.getRoute(route.link).then(data => actions.setRoute({ route, data }));
