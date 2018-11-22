@@ -5,17 +5,12 @@ import { RangeSlider } from '/slider';
 
 const Filter = ({ filter, state, actions, search }) => (
   <div class="filter">
+    <div class="filter__intro">Jeg ønsker å sykle ca...</div>
     <RangeSlider
       state={state.lengthSlider}
       actions={actions.lengthSlider}
       display={v => `${v} km`}
     />
-    <button
-      class="filter__search"
-      onclick={() => search(state.lengthSlider.value)}
-    >
-      Finn rute
-    </button>
   </div>
 );
 

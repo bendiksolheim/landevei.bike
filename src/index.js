@@ -10,18 +10,17 @@ const state = {
     style: 'mapbox://styles/bendiksolheim/cjosbdeu13l7k2roz0sm2c4bf',
     zoom: 13
   },
-  filter: true,
   routes: [],
   route: null,
   data: null,
   lengthSlider: Slider.state({ min: 0, max: 200, value: 20, step: 2.5 }),
-  length: 0
+  length: 20
 };
 
 const sortRoutes = routes =>
   routes.sort((r1, r2) => r1.meta.distance - r2.meta.distance);
 
-const search = length => state => ({ length, filter: false });
+const search = length => state => ({ length });
 const setRoutes = routes => state => ({ routes });
 const getRoutes = () => (state, actions) =>
   api.getRoutes().then(res => actions.setRoutes(sortRoutes(res.routes)));

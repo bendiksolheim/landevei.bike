@@ -13,19 +13,17 @@ const entry = (state, actions) => (
         <img src={logo} class="app__logo" />
         <h1 class="app__title">landevei.bike</h1>
       </div>
-      {state.filter && (
-        <Filter
-          state={state}
-          actions={actions}
-          filter={state.filter}
-          search={actions.search}
-        />
-      )}
+      <Filter
+        state={state}
+        actions={actions}
+        filter={state.filter}
+        search={actions.search}
+      />
       <Routes
         routes={state.routes}
         route={state.route}
         getRoute={actions.getRoute}
-        length={state.length}
+        length={state.lengthSlider.value}
       />
     </div>
     <div class="app__map">

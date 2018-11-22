@@ -1,6 +1,5 @@
 .route {
     align-items: center;
-    background: white;
     background: #8D8D95;
     border: 0;
     cursor: pointer;
@@ -19,12 +18,7 @@
     --h: 120;
     background: hsl(var(--h), 100%, 50%);
     height: 20px;
-    opacity: 0;
     width: 20px;
-}
-
-.route__length-indicator--visible {
-    opacity: 1;
 }
 
 .route__info {

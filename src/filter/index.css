@@ -2,34 +2,8 @@
     padding: 20px;
 }
 
-.filter__search {
-    background: transparent;
-    border: 2px solid black;
-    border-radius: 0;
-    cursor: pointer;
-    font-size: 1.0rem;
-    font-weight: 700;
-    margin-top: 30px;
-    outline: 0;
-    padding: 10px;
-    text-transform: uppercase;
-}
-
-.filter__module {
-    margin: 50px;
-}
-
-.module {
-}
-
-.module__header {
-    font-size: .7rem;
-    font-weight: 700;
+.filter__intro {
+    color: white;
     margin-bottom: 10px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.module__content {
     text-align: center;
 }
