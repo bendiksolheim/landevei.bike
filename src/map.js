@@ -1,5 +1,6 @@
 import { h } from 'hyperapp';
 import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const routeLayerId = 'route_layer';
 const routeSourceId = 'route_source';
