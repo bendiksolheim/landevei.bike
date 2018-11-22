@@ -3,10 +3,6 @@ import './index.css';
 import { Routes } from '/route-list';
 import { RangeSlider } from '/slider';
 
-function kilometersToMiles(km) {
-  return km / 10;
-}
-
 const Filter = ({ filter, state, actions, search }) => (
   <div class="filter">
     <div class="filter__content">
@@ -16,7 +12,7 @@ const Filter = ({ filter, state, actions, search }) => (
           <RangeSlider
             state={state.lengthSlider}
             actions={actions.lengthSlider}
-            display={v => `${kilometersToMiles(v)} mil`}
+            display={v => `${v} km`}
           />
         </div>
       </div>
