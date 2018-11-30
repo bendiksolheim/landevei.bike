@@ -14,7 +14,7 @@ const lengthIndicator = (routeLength, length) =>
 
 const onCreate = (el, route, length) => {
   el.style.setProperty(
-    '--h',
+    '--hue',
     lengthIndicator(route.meta.distance, length * 1000)
   );
 };
@@ -26,7 +26,7 @@ const onUpdate = (el, oldAttrs, route, length) => {
   );
   if (oldAttrs.length !== length) {
     el.style.setProperty(
-      '--h',
+      '--hue',
       lengthIndicator(route.meta.distance, length * 1000)
     );
   }

@@ -16,8 +16,8 @@
 }
 
 .route__length-indicator {
-    --h: 120;
-    background: hsl(var(--h), 100%, 50%);
+    --hue: 120;
+    background: hsl(var(--hue), 100%, 50%);
     height: 100%;
     left: 0;
     position: absolute;
