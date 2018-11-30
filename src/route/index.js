@@ -44,8 +44,14 @@ const Route = ({ route, onclick, length, selected, elevation }) => (
     />
     <div class="route__info">
       <div class="route__name">{route.name}</div>
-      <div class="route__distance">{mToKm(route.meta.distance)} km</div>
-      <div class="route__elevation">{route.meta.elevation} høydemeter</div>
+      <div class="route__distance">
+        <i class="material-icons route__icon">place</i>
+        <span>{mToKm(route.meta.distance)} km</span>
+      </div>
+      <div class="route__elevation">
+        <i class="material-icons route__icon">terrain</i>
+        {route.meta.elevation} høydemeter
+      </div>
     </div>
   </button>
 );

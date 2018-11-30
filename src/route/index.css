@@ -37,9 +37,19 @@
 }
 
 .route__distance {
+    align-items: center;
+    display: flex;
     font-size: 0.8rem;
 }
 
 .route__elevation {
+    align-items: center;
+    display: flex;
     font-size: 0.8rem;
+}
+
+.route__icon {
+    font-size: 18px !important;
+    margin-right: 5px;
+    opacity: 0.5;
 }
