@@ -2,33 +2,26 @@ import { h } from 'hyperapp';
 import classNames from 'classnames';
 import './index.css';
 
-const green = 120;
-const red = 0;
+const opaque = 1;
+const transparent = 0.1;
+const e = 2500;
 
 const mToKm = m => (m / 1000).toFixed(2);
 
 const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 
-const lengthIndicator = (routeLength, length) =>
-  green - clamp(Math.abs(length - routeLength) / 20000, 0, 1) * green;
-
-const onCreate = (el, route, length) => {
-  el.style.setProperty(
-    '--hue',
-    lengthIndicator(route.meta.distance, length * 1000)
-  );
+const opacity = (routeLength, length) => {
+  const diff = Math.abs(length - routeLength);
+  return diff < e ? opaque : clamp(5000 / diff, transparent, opaque);
 };
 
-const onUpdate = (el, oldAttrs, route, length) => {
-  console.log(
-    route.meta.distance,
-    Math.abs(length - route.meta.distance) / 1000
-  );
+const onCreate = (el, routeLength, length) => {
+  el.style.setProperty('--opacity', opacity(routeLength, length * 1000));
+};
+
+const onUpdate = (el, oldAttrs, routeLength, length) => {
   if (oldAttrs.length !== length) {
-    el.style.setProperty(
-      '--hue',
-      lengthIndicator(route.meta.distance, length * 1000)
-    );
+    el.style.setProperty('--opacity', opacity(routeLength, length * 1000));
   }
 };
 
@@ -36,12 +29,11 @@ const Route = ({ route, onclick, length, selected, elevation }) => (
   <button
     class={classNames('route', { 'route--selected': selected })}
     onclick={() => onclick(route)}
+    oncreate={el => onCreate(el, route.meta.distance, length)}
+    onupdate={(el, oldAttrs) =>
+      onUpdate(el, oldAttrs, route.meta.distance, length)
+    }
   >
-    <div
-      className="route__length-indicator"
-      oncreate={el => onCreate(el, route, length)}
-      onupdate={(el, oldAttrs) => onUpdate(el, oldAttrs, route, length)}
-    />
     <div class="route__info">
       <div class="route__name">{route.name}</div>
       <div class="route__distance">

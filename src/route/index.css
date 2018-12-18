@@ -1,4 +1,5 @@
 .route {
+    --opacity: 1;
     align-items: center;
     background: #8D8D95;
     border: 0;
@@ -6,6 +7,7 @@
     display: flex;
     margin: 10px 0;
     outline: 0;
+    opacity: var(--opacity);
     padding: 20px;
     position: relative;
     width: 100%;
@@ -13,15 +15,6 @@
 
 .route--selected {
     font-weight: 700;
-}
-
-.route__length-indicator {
-    --hue: 120;
-    background: hsl(var(--hue), 100%, 50%);
-    height: 100%;
-    left: 0;
-    position: absolute;
-    width: 7px;
 }
 
 .route__info {
