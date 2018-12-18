@@ -39,6 +39,5 @@
     margin-left: -20px;
     outline: 0;
     position: absolute;
-    transition: left .2s ease-in-out;
     width: var(--slider-handle-size);
 }
